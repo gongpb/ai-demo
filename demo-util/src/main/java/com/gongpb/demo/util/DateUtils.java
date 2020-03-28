@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * 日期工具类
  * 提供线程安全的时间转换方法
  * @author gongpb
- * @since 2013-12-30
+ * @since 2020-03-29
  */
 @Slf4j
 public class DateUtils {
@@ -35,7 +35,7 @@ public class DateUtils {
         private String formate;
         private int type; //0:字符串；1:int；2:long
 
-        public Date toDate(String dateString) {
+        public Date toDateSafe(String dateString) {
             try {
                 return getSdf(this.formate).parse(dateString);
             } catch (ParseException e) {
@@ -44,7 +44,7 @@ public class DateUtils {
             return null;
         }
 
-        public Date toDate(int dateString) {
+        public Date toDateSafe(int dateString) {
             try {
                 return getSdf(this.formate).parse(dateString+"");
             } catch (ParseException e) {
@@ -53,17 +53,17 @@ public class DateUtils {
             return null;
         }
 
-        public String toString(Date date) {
+        public String toStringSafe(Date date) {
             return getSdf(this.formate).format(date);
         }
 
-        public int toInt(Date date) throws Exception{
+        public int toIntSafe(Date date) throws Exception{
             if (type!=1){
                 throw new Exception("字符串类型不能转换int");
             }
             return Integer.valueOf(getSdf(this.formate).format(date));
         }
-        public long toLong_YYYYMMDDHHMMSSFromDate(Date date)  throws Exception{
+        public long toLongSafe(Date date)  throws Exception{
             if (type!=2){
                 throw new Exception("字符串类型不能转换long");
             }
@@ -78,8 +78,6 @@ public class DateUtils {
      */
     private static SimpleDateFormat getSdf(final String pattern) {
         ThreadLocal<SimpleDateFormat> tl = sdfMap.get(pattern);
-
-        // 此处的双重判断和同步是为了防止sdfMap这个单例被多次put重复的sdf
         if (tl == null) {
             tl = sdfMap.get(pattern);
             if (tl == null) {
@@ -98,7 +96,6 @@ public class DateUtils {
 
     /**
      * 日期格式化
-     *
      * @param date
      * @param format
      * @return
@@ -116,15 +113,6 @@ public class DateUtils {
         return ca.getTime();
     }
 
-    /**
-     * <p>
-     * 日期增加几个月
-     * </p>
-     *
-     * @param months 几个月
-     * @param date
-     * @return Date
-     */
     public static Date addMonths(int months, Date date) {
         Calendar ca = Calendar.getInstance();
         ca.setTime(date);
@@ -132,12 +120,6 @@ public class DateUtils {
         return ca.getTime();
     }
 
-    /**
-     * 获得几天之后的日期 传负数  表示几天之前的时间
-     *
-     * @param days
-     * @return
-     */
     public static Date addDays(int days, Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -146,24 +128,6 @@ public class DateUtils {
         return d;
     }
 
-    /**
-     * 获得几小时之后的日期 传负数  表示几天之前的时间
-     *
-     * @return
-     */
-    public static Date addHHs(int hour, Date date) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(Calendar.HOUR_OF_DAY, hour);
-        Date d = cal.getTime();
-        return d;
-    }
-
-    /**
-     * 获得几分钟之后的日期 传负数  表示几分钟之前的时间
-     *
-     * @return
-     */
     public static Date dateAddMinutes(int minute, Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -172,11 +136,6 @@ public class DateUtils {
         return d;
     }
 
-    /**
-     * 获得几分钟之后的秒 传负数  表示几分钟之前的时间
-     *
-     * @return
-     */
     public static Date dateAddSecond(int second, Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -186,12 +145,6 @@ public class DateUtils {
     }
 
 
-    /**
-     * 几毫秒之后的时间
-     * @param millsecond
-     * @param date
-     * @return
-     */
     public static Date addMillsecond(int millsecond, Date date) {
         Calendar ca = Calendar.getInstance();
         ca.setTime(date);
@@ -199,13 +152,6 @@ public class DateUtils {
         return ca.getTime();
     }
 
-    /**
-     * <p>计算开始日期 到 结束日期 总共相差多少月，忽略时分秒天</p>
-     *
-     * @param startDate
-     * @param endDate
-     * @return int  相差多少月
-     */
     public static int monthsBetweenYYYYMM(Date startDate, Date endDate) {
         Calendar c = Calendar.getInstance();
         c.setTime(startDate);
@@ -225,13 +171,6 @@ public class DateUtils {
         return result;
     }
 
-
-    /**
-     * 几个月之后的月份
-     *
-     * @param days
-     * @return
-     */
     public static Date dateAddMonths(int days, Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -246,13 +185,6 @@ public class DateUtils {
         return cal.getTime();// 获取一周之前的时间点(算上本天)
     }
 
-    /**
-     * <p>计算开始日期 到 结束日期 总共有多少天</p>
-     *
-     * @param startDate
-     * @param endDate
-     * @return int
-     */
     public static int daysBetween(Date startDate, Date endDate) {
         final int dayTime = 86400000;//一天的时间
         if (startDate == null || endDate == null) {
