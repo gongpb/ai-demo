@@ -8,3 +8,5 @@
 /.idea/modules.xml
 /.idea/vcs.xml
 /java-demo.iml
+/demo-util/target/
+/.idea/
