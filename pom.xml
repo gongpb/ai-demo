@@ -9,15 +9,132 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>java-jdk</module>
-        <module>junit-demo</module>
-        <module>spring-boot</module>
         <module>demo-springMvc</module>
         <module>demo-junit</module>
         <module>demo-jdk</module>
         <module>demo-springBoot</module>
         <module>demo-springMvc</module>
+        <module>demo-util</module>
     </modules>
 
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <spring.version>4.3.7.RELEASE</spring.version>
+        <slf4j.version>1.7.21</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+        <jackson.version>1.9.13</jackson.version>
+        <fastjson.version>1.2.61</fastjson.version>
+        <guava.version>20.0</guava.version>
+        <junit.version>4.12</junit.version>
+        <druid.version>1.1.19</druid.version>
+        <commons.lang.version>2.5</commons.lang.version>
+        <commons.codec.version>1.10</commons.codec.version>
+        <commons.beans.version>1.9.3</commons.beans.version>
+        <commons.beans.collection.version>1.8.3</commons.beans.collection.version>
+        <commons.collection.version>3.2.2</commons.collection.version>
+        <commons.collections4.version>4.1</commons.collections4.version>
+        <lombok.version>1.16.10</lombok.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- 单元测试工具  start-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>2.10.0</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito2</artifactId>
+                <version>2.0.2</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+                <version>2.0.2</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- 单元测试工具  end-->
+            <!--工具类包 start-->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons.collection.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons.collections4.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons.beans.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--工具类包 end-->
+
+            <!--log4j start-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>apache-log4j-extras</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+            <!--log4j end-->
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
 
 </project>
