@@ -16,6 +16,7 @@
         <module>demo-junit</module>
         <module>demo-jdk</module>
         <module>demo-springBoot</module>
+        <module>demo-springMvc</module>
     </modules>
 
 
