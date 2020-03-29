@@ -11,5 +11,81 @@
 
     <artifactId>demo-junit</artifactId>
 
+   <dependencies>
+       <!-- 单元测试工具  -->
+       <dependency>
+           <groupId>junit</groupId>
+           <artifactId>junit</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.mockito</groupId>
+           <artifactId>mockito-core</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.powermock</groupId>
+           <artifactId>powermock-api-mockito2</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.powermock</groupId>
+           <artifactId>powermock-module-junit4</artifactId>
+       </dependency>
+
+
+       <!--http 工具类 start-->
+       <dependency>
+           <groupId>com.github.kevinsawicki</groupId>
+           <artifactId>http-request</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>com.squareup.okhttp3</groupId>
+           <artifactId>okhttp</artifactId>
+       </dependency>
+       <!--spring start-->
+       <dependency>
+           <groupId>org.projectlombok</groupId>
+           <artifactId>lombok</artifactId>
+       </dependency>
+
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-jdbc</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-beans</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-core</artifactId>
+       </dependency>
+
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-tx</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-webmvc</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-web</artifactId>
+       </dependency>
+
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-context-support</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-context</artifactId>
+       </dependency>
+
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-test</artifactId>
+       </dependency>
+       <!--spring end-->
+   </dependencies>
 
 </project>
