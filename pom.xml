@@ -10,9 +10,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>demo-jdk</module>
-        <module>demo-springBoot</module>
-        <module>demo-springMvc</module>
         <module>demo-util</module>
         <module>demo-langchain</module>
         <module>demo-java</module>
