@@ -8,5 +8,7 @@ package com.gongpb.demo.util;
  * @since 2020-03-29
  */
 public class DateUtils {
-
+    public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis());
+    }
 }
