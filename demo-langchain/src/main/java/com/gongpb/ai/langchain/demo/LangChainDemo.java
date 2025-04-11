@@ -1,4 +1,4 @@
-package com.gongpb.demo.langchain.demo;
+package com.gongpb.ai.langchain.demo;
 
 public class LangChainDemo {
     public static void main(String[] args) {
