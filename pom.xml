@@ -12,6 +12,7 @@
     <modules>
         <module>demo-langchain</module>
         <module>demo-java</module>
+        <module>demo-mcp-server</module>
     </modules>
 
     <properties>
