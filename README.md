@@ -1,2 +1,2 @@
-# ai-langchain-demo
-ai-langchain-demo
+# ai-demo
+ai-demo

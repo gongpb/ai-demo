@@ -9,10 +9,8 @@
 
     <groupId>demo-langchain</groupId>
     <artifactId>demo-langchain</artifactId>
-    <packaging>war</packaging>
 
     <dependencies>
-
         <dependency>
             <groupId>dev.langchain4j</groupId>
             <artifactId>langchain4j-spring-boot-starter</artifactId>
